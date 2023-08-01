@@ -1,0 +1,65 @@
+@urlDev=http://localhost:5001
+@accessTokenAdmin=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZXMiOiJBRE1JTixVU0VSIiwiaWF0IjoxNjkxMTQwNDkyLCJleHAiOjE2OTExNDQwOTJ9.7hrr0wt2U35jK7TBLig2hnv57y6UjONZsVN0MiBF6Ss
+@accessTokenUser=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZXMiOiJVU0VSIiwiaWF0IjoxNjkxNjczNjQ5LCJleHAiOjE2OTE2NzcyNDl9.5Ry2x6o9634bmCByP93L6XEfe9NNwYhTxsMv-m5l1Ik
+
+
+###Create new user
+POST {{urlDev}}/user
+Content-Type: application/
+Authorization: Bearer {{accessTokenAdmin}}
+
+{
+    "email": "b@gmail.com",
+    "password": "123456"
+}
+
+###Get list user
+GET {{urlDev}}/user/list
+Authorization: Bearer {{accessTokenAdmin}}
+
+### Get user by id
+GET {{urlDev}}/user/1
+Authorization: Bearer {{accessTokenAdmin}}
+
+###Update user
+PATCH {{urlDev}}/user/2
+Authorization: Bearer {{accessTokenAdmin}}
+Content-Type: application/json
+
+{
+    "email": "eee@gmail.com"
+}
+
+### current user
+GET {{urlDev}}/user/me
+Authorization: Bearer {{accessTokenUser}}
+
+###Signup
+POST {{urlDev}}/signup
+Content-Type: application/json
+
+{
+    "email": "user2@gmail.com",
+    "password": "123456"
+}
+
+###Sigin
+POST {{urlDev}}/signin
+Content-Type: application/json
+
+{
+    "email": "user1@gmail.com",
+    "password": "123456"
+}
+
+###Signout
+GET {{urlDev}}/signout
+
+###testAPI
+GET {{urlDev}}/test
+
+###getListUserWithRole
+GET {{urlDev}}/user/users-with-role
+Authorization: Bearer {{accessTokenUser}}
+ 
+

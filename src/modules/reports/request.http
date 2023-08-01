@@ -1,0 +1,9 @@
+POST http://localhost:3000/reports
+Content-Type: application/json
+
+{
+  "name": "O to 6",
+  "make": "Toyota",
+  "model": "Corrola",
+  "year": 2000
+}
