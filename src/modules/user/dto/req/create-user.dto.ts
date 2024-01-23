@@ -1,4 +1,3 @@
-import { Media } from '@/entity/media.entity';
 import { IsArray, IsEmail, IsString } from 'class-validator';
 
 export class CreateUserDto {

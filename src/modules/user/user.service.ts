@@ -9,7 +9,6 @@ import { RedisService } from '@/shared/redis/redis.service';
 import { redisKeys } from '@/shared/constant/redis-keys';
 import { MailService } from '@/shared/mail/mail.service';
 import { CreateUserDto } from './dto/req/create-user.dto';
-import { MediaService } from '../media/media.service';
 
 @Injectable()
 export class UserService {
@@ -19,7 +18,6 @@ export class UserService {
     private readonly transactionManager: TransactionManager,
     private readonly redisService: RedisService,
     private readonly mailService: MailService,
-    private readonly mediaService: MediaService,
     @InjectRepository(User) private repository: Repository<User>,
   ) {}
 
@@ -31,12 +29,6 @@ export class UserService {
       const newUser = await transaction.manager.save(
         this.repository.create(user),
       );
-
-      if (user.avatars.length > 0) {
-        for (const avatar of user.avatars) {
-          this.mediaService.save({ user: newUser, ...avatar }, transaction);
-        }
-      }
 
       const roles = [1, 3];
       for (const role of roles) {

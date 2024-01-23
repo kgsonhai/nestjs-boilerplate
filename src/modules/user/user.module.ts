@@ -10,7 +10,6 @@ import { TransactionModule } from '@/shared/transaction/transaction.module';
 import { AppLoggerModule } from '@/shared/logger/app-logger.module';
 import { RedisModule } from '@/shared/redis/redis.module';
 import { MailModule } from '@/shared/mail/mail.module';
-import { MediaModule } from '../media/media.module';
 
 @Module({
   imports: [
@@ -20,7 +19,6 @@ import { MediaModule } from '../media/media.module';
     AppLoggerModule,
     RedisModule,
     MailModule,
-    MediaModule,
   ],
   controllers: [UserController],
   providers: [
